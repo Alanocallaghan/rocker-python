@@ -2,8 +2,9 @@ from rocker/r-base:latest
 
 RUN R -e 'install.packages("argparse")'
 
-RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+RUN apt-get update
+RUN apt-get install -y python3 python3-pip
 
-RUN bash ./Miniconda3-latest-Linux-x86_64.sh -b
+RUN pip3 install argparse simplejson
 
 ENTRYPOINT /bin/bash
